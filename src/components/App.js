@@ -2,20 +2,25 @@ import React from 'react';
 import Nav from './Nav';
 import List from './List';
 import Search from './Search';
-import movies from '../data/movies';
+import Add from './Add';
+import initialMovies from '../data/movies';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { movies }
+    this.state = { 
+      movies: initialMovies, 
+      displayedMovies: initialMovies
+    }
     this.filterMovies = this.filterMovies.bind(this);
+    this.addMovies = this.addMovies.bind(this);
   }
 
   filterMovies(text) {
     const query = text.trim().toLowerCase();
     // Reset list if blank
     if (query.length === 0) {
-      this.setState({ movies });
+      this.setState({ displayedMovies: this.state.movies });
       return;
     }
 
@@ -27,7 +32,18 @@ class App extends React.Component {
     }
 
     // Update movies if match
-    this.setState({ movies: filteredMovies });
+    this.setState({ displayedMovies: filteredMovies });
+  }
+
+  addMovies(text) {
+    const newMovie = { title: text.trim() };
+    if (newMovie.title.length !== 0) {
+      const updatedMovies = this.state.movies.concat(newMovie);
+      this.setState({ 
+        movies: updatedMovies,
+        displayedMovies: updatedMovies
+      });
+    }
   }
 
   render() {
@@ -35,8 +51,9 @@ class App extends React.Component {
     	<div>
         <Nav />
         <div className='container'>
+          <Add addMovies={this.addMovies}/>
           <Search filterMovies={this.filterMovies}/>
-          <List movies={this.state.movies} />
+          <List movies={this.state.displayedMovies} />
         </div>
       </div>
     );
