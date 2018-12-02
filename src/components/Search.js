@@ -25,9 +25,10 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div>
-        <input type='text' onChange={this.change} onKeyPress={this.enter} />
-        <button onClick={this.click}>Go!</button>
+      <div className='input-group'>
+        <input className='form-control' type='text' placeholder='Search...'
+          onChange={this.change} onKeyPress={this.enter} />
+        <button className='btn btn-outline-dark' onClick={this.click}>Go!</button>
       </div>
     );
   }

@@ -28,9 +28,10 @@ class Add extends React.Component {
 
   render() {
     return (
-      <div>
-        <input type='text' value={this.state.text} onChange={this.change} onKeyPress={this.enter}/>
-        <button onClick={this.click}>Add</button>
+      <div className='input-group'>
+        <input className='form-control' type='text' value={this.state.text} placeholder='Add movie title here'
+          onChange={this.change} onKeyPress={this.enter}/>
+        <button className='btn btn-success' onClick={this.click}>Add</button>
       </div>
     );
   }
