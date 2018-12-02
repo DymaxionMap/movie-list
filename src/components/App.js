@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from './Nav';
+import List from './List';
 import movies from '../data/movies';
 
 class App extends React.Component {
@@ -8,9 +9,7 @@ class App extends React.Component {
     	<div>
         <Nav />
         <div className='container'>
-          <ul className='list-group'>
-            {movies.map(movie => <li className='list-group-item'>{movie.title}</li>)}
-          </ul>
+          <List movies={movies} />
         </div>
       </div>
     );
