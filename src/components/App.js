@@ -6,9 +6,11 @@ class App extends React.Component {
     return (
     	<div>
         <h1>MovieList</h1>
-        <ul>
-          {movies.map(movie => <li>{movie.title}</li>)}
-        </ul>
+        <div className='container'>
+          <ul className='list-group'>
+            {movies.map(movie => <li className='list-group-item'>{movie.title}</li>)}
+          </ul>
+        </div>
       </div>
     );
   }
