@@ -1,0 +1,16 @@
+/*.watched {
+  float: right;
+  background-color: transparent;
+}*/
+
+.btn.btn-success.watched {
+  float: right;
+}
+
+.btn.btn-success.watched.unpressed {
+  float: right;
+  color: black;
+  background-color: transparent;
+}
+
+
